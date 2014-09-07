@@ -4,20 +4,69 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
         >
-    <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            />
 
-    <EditText android:id="@+id/edit_message"
-            android:layout_width="fill_parent"
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:baselineAligned="false">
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="p1"
+                    android:id="@+id/p1_name"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="p2"
+                    android:id="@+id/p2_name"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="20 hp"
+                    android:id="@+id/p1_hp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="18 hp"
+                    android:id="@+id/p2_hp"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="poisoned"
+                    android:id="@+id/p1_poisoned" android:textColor="#ff278b2f"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text=" "
+                    android:id="@+id/p2_poisoned" android:textColor="#ff278b2f"/>
+        </TableRow>
+    </TableLayout>
+    <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/edit_message"
-            />
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/button_send"
-            android:onClick="sendMessage"
-            />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Ready to go!"
+            android:id="@+id/text" android:paddingTop="20dp" android:paddingBottom="20dp"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="continue"
+            android:id="@+id/button" android:onClick="continueGame"/>
 </LinearLayout>
 

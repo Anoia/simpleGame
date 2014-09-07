@@ -10,7 +10,7 @@ public class Counter extends Action {
     }
 
     @Override
-    String doStuff(Player p1, Player p2) {
+    public String doStuff(Player p1, Player p2) {
         String result = p1.getPlayerName() + " uses "+ getActionName()+"\n";
         if(p2.getAction().actionType == ActionType.BLOCK){
             result += "The damage is avoided by "+p2.getPlayerName()+"'s Block.\n";

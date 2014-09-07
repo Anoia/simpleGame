@@ -8,7 +8,7 @@ public abstract class Action {
 
     ActionType actionType;
 
-    abstract String doStuff(Player p1, Player p2);
+    public abstract String doStuff(Player p1, Player p2);
 
     public String getActionName() {
         return actionName;

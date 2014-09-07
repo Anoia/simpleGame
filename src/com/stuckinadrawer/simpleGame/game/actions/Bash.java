@@ -4,7 +4,7 @@ import com.stuckinadrawer.simpleGame.game.Player;
 
 public class Bash extends Action{
     @Override
-    String doStuff(Player p1, Player p2) {
+    public String doStuff(Player p1, Player p2) {
 
 
         if(p2.getAction().getActionType() == ActionType.COUNTER){

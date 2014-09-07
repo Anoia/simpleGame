@@ -10,7 +10,7 @@ public class Block extends Action {
     }
 
     @Override
-    String doStuff(Player p1, Player p2) {
+    public String doStuff(Player p1, Player p2) {
         return p1.getPlayerName() + " uses "+actionName+".\n";
     }
 }
