@@ -13,7 +13,7 @@ public class FirstAid extends Action{
     public String doStuff(Player p1, Player p2) {
         String result;
         if(p2.getAction().getActionType() == ActionType.ATTACK){
-            result = p1.getPlayerName() + "tries to use "+actionName+", but it is prevented by "+p2.getPlayerName()+"'s "+ p2.getAction().getActionName()+"!\n";
+            result = p1.getPlayerName() + " tries to use "+actionName+", but it is prevented by "+p2.getPlayerName()+"'s "+ p2.getAction().getActionName()+"!\n";
         }else{
             result = p1.getPlayerName() + " uses First Aid!\n";
             result += p1.getPlayerName() + " heals 3 HP.";
@@ -23,6 +23,6 @@ public class FirstAid extends Action{
             }
         }
 
-        return null;
+        return result;
     }
 }

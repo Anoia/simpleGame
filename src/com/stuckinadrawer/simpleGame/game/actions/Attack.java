@@ -13,9 +13,9 @@ public class Attack extends Action {
     public String doStuff(Player p1, Player p2) {
         String result;
         if(p2.getAction().getActionType() == ActionType.BASH){
-            result = p1.getPlayerName() + "tries to use "+actionName+", but it is prevented by "+p2.getPlayerName()+"'s "+ p2.getAction().getActionName()+"!\n";
+            result = p1.getPlayerName() + " tries to use "+actionName+", but it is prevented by "+p2.getPlayerName()+"'s "+ p2.getAction().getActionName()+"!\n";
         }else{
-            result = p1.getPlayerName() + "uses "+ actionName+"!\n";
+            result = p1.getPlayerName() + " uses "+ actionName+"!\n";
             int dmg = 3;
             if(p2.getAction().getActionType() == ActionType.BLOCK){
                 dmg -= 2;

@@ -55,4 +55,9 @@ public class Player {
             health = maxHealth;
         }
     }
+
+    public void clearAction() {
+        action = null;
+
+    }
 }

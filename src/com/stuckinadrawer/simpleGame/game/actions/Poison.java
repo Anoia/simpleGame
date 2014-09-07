@@ -12,9 +12,11 @@ public class Poison extends Action{
     @Override
     public String doStuff(Player p1, Player p2) {
         if(p2.getAction().getActionType() == ActionType.BLOCK){
-            return p1.getPlayerName() + "tries to use "+actionName+", but it is prevented by "+p2.getPlayerName()+"'s "+ p2.getAction().getActionName()+"!\n";
+            return p1.getPlayerName() + " tries to use "+actionName+", but it is prevented by "+p2.getPlayerName()+"'s "+ p2.getAction().getActionName()+"!\n";
         }else{
+            p2.setPoisoned(true);
             return p1.getPlayerName() + " successfully applies Poison\n";
+
         }
     }
 }

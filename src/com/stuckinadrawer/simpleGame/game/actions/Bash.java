@@ -3,14 +3,20 @@ package com.stuckinadrawer.simpleGame.game.actions;
 import com.stuckinadrawer.simpleGame.game.Player;
 
 public class Bash extends Action{
+
+    public Bash(){
+        this.actionName = "Bash";
+        this.actionType = ActionType.BASH;
+    }
+
     @Override
     public String doStuff(Player p1, Player p2) {
 
 
         if(p2.getAction().getActionType() == ActionType.COUNTER){
-            return p1.getPlayerName() + "tries to use "+actionName+", but it is prevented by "+p2.getPlayerName()+"'s "+ p2.getAction().getActionName()+"!\n";
+            return p1.getPlayerName() + " tries to use "+actionName+", but it is prevented by "+p2.getPlayerName()+"'s "+ p2.getAction().getActionName()+"!\n";
         }else{
-            String result = p1.getPlayerName() + "uses "+ actionName+"!\n";
+            String result = p1.getPlayerName() + " uses "+ actionName+"!\n";
             int dmg = 5;
             if(p2.getAction().getActionType() == ActionType.BLOCK){
                 dmg -= 2;

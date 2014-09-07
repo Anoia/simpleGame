@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Choose Action"
+            android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/chooseActionPlayerName" android:layout_gravity="center_horizontal" android:singleLine="true"
+            android:text="for playername"/>
+    <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:textAlignment="center" android:id="@+id/radioGroup">
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attack"
+                android:id="@+id/attack" android:checked="true"/>
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bash"
+                android:id="@+id/bash" android:checked="false"/>
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Counter"
+                android:id="@+id/counter" android:checked="false"/>
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Block"
+                android:id="@+id/Block" android:checked="false"/>
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Poison"
+                android:id="@+id/poison" android:checked="false"/>
+        <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FirstAid"
+                android:id="@+id/first_aid" android:checked="false"/>
+    </RadioGroup>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            android:id="@+id/button" android:layout_gravity="center_horizontal" android:onClick="confirmAction"/>
+</LinearLayout>
