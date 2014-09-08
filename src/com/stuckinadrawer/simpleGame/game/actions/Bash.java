@@ -7,6 +7,7 @@ public class Bash extends Action{
     public Bash(){
         this.actionName = "Bash";
         this.actionType = ActionType.BASH;
+        this.actionDescription = "Bash:\nDeals 5 damage and prevents Attack.";
     }
 
     @Override

@@ -7,6 +7,7 @@ public class Poison extends Action{
     public Poison(){
         this.actionName = "Poison";
         this.actionType = ActionType.POISON;
+        this.actionDescription = "Poison:\nDeals 1 damage every turn until First Aid is used.";
     }
 
     @Override

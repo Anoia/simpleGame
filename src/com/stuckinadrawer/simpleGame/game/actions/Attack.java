@@ -7,6 +7,7 @@ public class Attack extends Action {
     public Attack(){
         this.actionName = "Attack";
         this.actionType = ActionType.ATTACK;
+        this.actionDescription = "Attack:\nDeals 3 damage and prevents First Aid.";
     }
 
     @Override

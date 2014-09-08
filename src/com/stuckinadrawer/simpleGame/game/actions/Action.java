@@ -5,7 +5,7 @@ import com.stuckinadrawer.simpleGame.game.Player;
 public abstract class Action {
 
     String actionName;
-
+    String actionDescription;
     ActionType actionType;
 
     public abstract String doStuff(Player p1, Player p2);
@@ -16,5 +16,9 @@ public abstract class Action {
 
     public ActionType getActionType(){
         return actionType;
+    }
+
+    public String getActionDescription(){
+        return actionDescription;
     }
 }

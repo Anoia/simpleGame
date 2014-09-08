@@ -7,6 +7,7 @@ public class Counter extends Action {
     public Counter(){
         this.actionName = "Counter";
         this.actionType = ActionType.COUNTER;
+        this.actionDescription = "Counter:\nDeals 2 damage and prevents Bash.";
     }
 
     @Override

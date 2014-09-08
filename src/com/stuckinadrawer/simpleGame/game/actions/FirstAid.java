@@ -7,6 +7,7 @@ public class FirstAid extends Action{
     public FirstAid(){
         this.actionName = "First Aid";
         this.actionType = ActionType.FIRST_AID;
+        this.actionDescription = "First Aid:\nHeals for 3 hp and removes existing Poison. Does not stop Poison from being applied at the same time.";
     }
 
     @Override

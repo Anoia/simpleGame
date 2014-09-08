@@ -30,32 +30,40 @@ public class ChooseActionActivity extends Activity {
 
         TextView textView = (TextView) findViewById(R.id.chooseActionPlayerName);
         textView.setText("for "+p.getPlayerName());
+
+        RadioGroup group = (RadioGroup) findViewById(R.id.radioGroup);
+        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                TextView actionDescription = (TextView) findViewById(R.id.actionDescription);
+                RadioButton checkedButton = (RadioButton) findViewById(checkedId);
+                String actionName = checkedButton.getText().toString();
+                Action action;
+                if(actionName.equals("Attack")){
+                    action = new Attack();
+                }else if(actionName.equals("Bash")){
+                    action = new Bash();
+                }else if(actionName.equals("Block")){
+                    action = new Block();
+                }else if(actionName.equals("Counter")){
+                    action = new Counter();
+                }else if(actionName.equals("Poison")){
+                    action = new Poison();
+                }else{
+                    action = new FirstAid();
+                }
+
+                p.setAction(action);
+                actionDescription.setText(action.getActionDescription());
+            }
+        });
+        group.check(R.id.attack);
+
+
+
     }
 
     public void confirmAction(View view){
-        RadioGroup group = (RadioGroup) findViewById(R.id.radioGroup);
-        int id = group.getCheckedRadioButtonId();
-        RadioButton button = (RadioButton) findViewById(id);
-        String actionName = button.getText().toString();
-        if(actionName.equals("Attack")){
-            p.setAction(new Attack());
-        }
-        if(actionName.equals("Bash")){
-            p.setAction(new Bash());
-        }
-        if(actionName.equals("Block")){
-            p.setAction(new Block());
-        }
-        if(actionName.equals("Counter")){
-            p.setAction(new Counter());
-        }
-        if(actionName.equals("Poison")){
-            p.setAction(new Poison());
-        }
-        if(actionName.equals("FirstAid")){
-            p.setAction(new FirstAid());
-        }
-
         if(first){
             startActivity(new Intent(this, ChooseActionActivity.class));
         }else{
