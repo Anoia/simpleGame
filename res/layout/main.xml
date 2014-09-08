@@ -5,68 +5,81 @@
               android:layout_height="fill_parent"
         >
 
-    <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:baselineAligned="false">
-        <TableRow
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/scrollView">
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="p1"
-                    android:id="@+id/p1_name"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="p2"
-                    android:id="@+id/p2_name"/>
-        </TableRow>
-        <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+            <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:baselineAligned="false"
+                    android:layout_gravity="center_horizontal" android:gravity="fill_horizontal"
+                    android:stretchColumns="1" android:paddingLeft="20dp" android:paddingRight="20dp">
+                <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent" android:gravity="center|center_horizontal">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="p1"
+                            android:id="@+id/p1_name"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="p2"
+                            android:id="@+id/p2_name" android:gravity="right"/>
+                </TableRow>
+                <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="20 hp"
+                            android:id="@+id/p1_hp"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="18 hp"
+                            android:id="@+id/p2_hp" android:gravity="right"/>
+                </TableRow>
+                <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="poisoned"
+                            android:id="@+id/p1_poisoned" android:textColor="#ff278b2f"/>
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text=" "
+                            android:id="@+id/p2_poisoned" android:textColor="#ff278b2f" android:gravity="right"/>
+                </TableRow>
+            </TableLayout>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="20 hp"
-                    android:id="@+id/p1_hp"/>
-            <TextView
+                    android:text="Ready to go!"
+                    android:id="@+id/text" android:paddingTop="20dp" android:paddingBottom="20dp"
+                    android:paddingLeft="20dp" android:paddingRight="20dp"/>
+            <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="18 hp"
-                    android:id="@+id/p2_hp"/>
-        </TableRow>
-        <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="poisoned"
-                    android:id="@+id/p1_poisoned" android:textColor="#ff278b2f"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text=" "
-                    android:id="@+id/p2_poisoned" android:textColor="#ff278b2f"/>
-        </TableRow>
-    </TableLayout>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Ready to go!"
-            android:id="@+id/text" android:paddingTop="20dp" android:paddingBottom="20dp"/>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="continue"
-            android:id="@+id/button" android:onClick="continueGame"/>
+                    android:text="continue"
+                    android:id="@+id/button" android:onClick="continueGame" android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
 
