@@ -66,45 +66,36 @@ public class GameActivity extends Activity {
         String text = "";
         text += p1.getAction().doStuff(p1, p2);
         text += "\n";
-        if(p2.getHealth() <= 0){
+
+        text += p2.getAction().doStuff(p2, p1);
+        text += "\n";
+
+        if(p1.isPoisoned()){
+            p1.takeDamage(1);
+            text+=p1.getPlayerName()+" takes damage from Poison. \n";
+
+        }
+        if(p2.isPoisoned()){
+            p2.takeDamage(1);
+            text+=p2.getPlayerName()+" takes damage from Poison. \n";
+        }
+
+        if(p1.getHealth() <= 0 && p2.getHealth() <= 0){
+            text += "\n THE BATTLE IS OVER! NO ONE HAS WON!";
+            text += "\n EVERYONE IS DEAD! MUAHAHAHAHAAAA!";
+            Button b = (Button) findViewById(R.id.button);
+            b.setVisibility(View.GONE);
+        }else if(p1.getHealth() <= 0){
+            text += "\n THE BATTLE IS OVER! \n\n"+p2.getPlayerName()+" HAS WON!";
+            Button b = (Button) findViewById(R.id.button);
+            b.setVisibility(View.GONE);
+        }else if(p2.getHealth() <= 0){
             text += "\n THE BATTLE IS OVER! \n\n"+p1.getPlayerName()+" HAS WON!";
             Button b = (Button) findViewById(R.id.button);
             b.setVisibility(View.GONE);
-
-        }else{
-            text += p2.getAction().doStuff(p2, p1);
-            text += "\n";
-            if(p1.getHealth() <= 0){
-                text += "\n THE BATTLE IS OVER! \n\n"+p2.getPlayerName()+" HAS WON!";
-                Button b = (Button) findViewById(R.id.button);
-                b.setVisibility(View.GONE);
-            }else{
-                if(p1.isPoisoned()){
-                    p1.takeDamage(1);
-                    text+=p1.getPlayerName()+" takes damage from Poison. \n";
-
-                }
-                if(p2.isPoisoned()){
-                    p2.takeDamage(1);
-                    text+=p2.getPlayerName()+" takes damage from Poison. \n";
-                }
-
-                if(p1.getHealth() <= 0 && p2.getHealth() <= 0){
-                    text += "\n THE BATTLE IS OVER! NO ONE HAS WON!";
-                    text += "\n EVERYONE IS DEAD! MUAHAHAHAHAAAA!";
-                    Button b = (Button) findViewById(R.id.button);
-                    b.setVisibility(View.GONE);
-                }else if(p1.getHealth() <= 0){
-                    text += "\n THE BATTLE IS OVER! \n\n"+p2.getPlayerName()+" HAS WON!";
-                    Button b = (Button) findViewById(R.id.button);
-                    b.setVisibility(View.GONE);
-                }else if(p2.getHealth() <= 0){
-                    text += "\n THE BATTLE IS OVER! \n\n"+p1.getPlayerName()+" HAS WON!";
-                    Button b = (Button) findViewById(R.id.button);
-                    b.setVisibility(View.GONE);
-                }
-            }
         }
+
+
 
         TextView textView = (TextView) findViewById(R.id.text);
         textView.setText(text);

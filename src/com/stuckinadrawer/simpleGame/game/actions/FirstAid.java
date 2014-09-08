@@ -16,11 +16,11 @@ public class FirstAid extends Action{
             result = p1.getPlayerName() + " tries to use "+actionName+", but it is prevented by "+p2.getPlayerName()+"'s "+ p2.getAction().getActionName()+"!\n";
         }else{
             result = p1.getPlayerName() + " uses First Aid!\n";
-            result += p1.getPlayerName() + " heals 3 HP.";
+            result += p1.getPlayerName() + " heals 3 HP.\n";
             p1.heal(3);
             if(p1.isPoisoned() && p2.getAction().getActionType() != ActionType.POISON){
                 p1.setPoisoned(false);
-                result += p1.getPlayerName() + " also heals Poison!";
+                result += p1.getPlayerName() + " also heals Poison!\n";
             }
         }
 
