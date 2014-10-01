@@ -35,8 +35,6 @@ public class GameActivity extends Activity implements ResolutionFragment.Continu
 
         fragmentTransaction.add(R.id.container1, playerInfoFragment);
         fragmentTransaction.add(R.id.container2, resolutionFragment);
-        fragmentTransaction.add(R.id.container2, chooseActionFragment);
-        fragmentTransaction.detach(chooseActionFragment);
         fragmentTransaction.commit();
 
 
@@ -60,15 +58,25 @@ public class GameActivity extends Activity implements ResolutionFragment.Continu
             //both actions selected
             FragmentManager fragmentManager =  getFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.detach(chooseActionFragment);
-            transaction.attach(resolutionFragment);
+            transaction.replace(R.id.container2, resolutionFragment);
             transaction.commit();
 
             fragmentManager.executePendingTransactions();
             resolutionFragment.doResolution();
         }else{
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            chooseActionFragment = new ChooseActionFragment();
+            transaction.replace(R.id.container2, chooseActionFragment);
+            transaction.commit();
+            fragmentManager.executePendingTransactions();
+
+
+
             chooseActionFragment.setPlayer(p2);
         }
+
+        playerInfoFragment.updateUI();
 
     }
 
@@ -76,9 +84,8 @@ public class GameActivity extends Activity implements ResolutionFragment.Continu
     public void onClickContinue() {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.detach(resolutionFragment);
-        transaction.attach(chooseActionFragment);
-        //transaction.replace(R.id.container2, chooseActionFragment);
+        chooseActionFragment = new ChooseActionFragment();
+        transaction.replace(R.id.container2, chooseActionFragment);
         transaction.commit();
         fragmentManager.executePendingTransactions();
 

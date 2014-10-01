@@ -3,6 +3,8 @@ package com.stuckinadrawer.simpleGame.game;
 
 import com.stuckinadrawer.simpleGame.game.actions.Action;
 
+import java.sql.SQLOutput;
+
 public class Player {
 
     private final int maxHealth = 20;
@@ -58,6 +60,7 @@ public class Player {
 
     public void clearAction() {
         action = null;
+        System.out.println(this.playerName + " action set to null");
 
     }
 }

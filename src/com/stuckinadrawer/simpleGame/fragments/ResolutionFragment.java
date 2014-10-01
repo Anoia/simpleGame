@@ -68,15 +68,15 @@ public class ResolutionFragment extends Fragment{
         if(p1.getHealth() <= 0 && p2.getHealth() <= 0){
             text += "\n THE BATTLE IS OVER! NO ONE HAS WON!";
             text += "\n EVERYONE IS DEAD! MUAHAHAHAHAAAA!";
-            Button b = (Button) getView().findViewById(R.id.button);
+            Button b = (Button) getView().findViewById(R.id.button_continue);
             b.setVisibility(View.GONE);
         }else if(p1.getHealth() <= 0){
             text += "\n THE BATTLE IS OVER! \n\n"+p2.getPlayerName()+" HAS WON!";
-            Button b = (Button) getView().findViewById(R.id.button);
+            Button b = (Button) getView().findViewById(R.id.button_continue);
             b.setVisibility(View.GONE);
         }else if(p2.getHealth() <= 0){
             text += "\n THE BATTLE IS OVER! \n\n"+p1.getPlayerName()+" HAS WON!";
-            Button b = (Button) getView().findViewById(R.id.button);
+            Button b = (Button) getView().findViewById(R.id.button_continue);
             b.setVisibility(View.GONE);
         }
 
