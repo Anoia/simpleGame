@@ -14,11 +14,11 @@ public abstract class Action {
         return actionName;
     }
 
-    public ActionType getActionType(){
+    ActionType getActionType() {
         return actionType;
     }
 
-    public String getActionDescription(){
+    public String getActionDescription() {
         return actionDescription;
     }
 }

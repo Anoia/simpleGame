@@ -9,14 +9,14 @@ import com.stuckinadrawer.simpleGame.fragments.PlayerInfoFragment;
 import com.stuckinadrawer.simpleGame.fragments.ResolutionFragment;
 import com.stuckinadrawer.simpleGame.game.Player;
 
-public class GameActivity extends Activity implements ResolutionFragment.ContinueListener, ChooseActionFragment.ConfirmActionListener{
+public class GameActivity extends Activity implements ResolutionFragment.ContinueListener, ChooseActionFragment.ConfirmActionListener {
 
     public static Player p1 = new Player("Player 1");
     public static Player p2 = new Player("Player 2");
 
-    PlayerInfoFragment playerInfoFragment;
-    ResolutionFragment resolutionFragment;
-    ChooseActionFragment chooseActionFragment;
+    private PlayerInfoFragment playerInfoFragment;
+    private ResolutionFragment resolutionFragment;
+    private ChooseActionFragment chooseActionFragment;
 
     /**
      * Called when the activity is first created.
@@ -28,7 +28,6 @@ public class GameActivity extends Activity implements ResolutionFragment.Continu
 
         playerInfoFragment = new PlayerInfoFragment();
         resolutionFragment = new ResolutionFragment();
-        chooseActionFragment = new ChooseActionFragment();
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -36,41 +35,32 @@ public class GameActivity extends Activity implements ResolutionFragment.Continu
         fragmentTransaction.add(R.id.container1, playerInfoFragment);
         fragmentTransaction.add(R.id.container2, resolutionFragment);
         fragmentTransaction.commit();
-
-
-        if(p1.getAction() != null){
-            //doResolution();
-        }
-        //updateUI();
-
-
     }
 
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
         playerInfoFragment.updateUI();
     }
 
     @Override
     public void onClickConfirm() {
-        if(p2.getAction()!= null){
+        if (p2.getAction() != null) {
             //both actions selected
-            FragmentManager fragmentManager =  getFragmentManager();
+            FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.replace(R.id.container2, resolutionFragment);
             transaction.commit();
 
             fragmentManager.executePendingTransactions();
             resolutionFragment.doResolution();
-        }else{
+        } else {
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             chooseActionFragment = new ChooseActionFragment();
             transaction.replace(R.id.container2, chooseActionFragment);
             transaction.commit();
             fragmentManager.executePendingTransactions();
-
 
 
             chooseActionFragment.setPlayer(p2);

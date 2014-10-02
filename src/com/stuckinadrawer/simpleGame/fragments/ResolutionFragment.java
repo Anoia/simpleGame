@@ -12,9 +12,9 @@ import com.stuckinadrawer.simpleGame.GameActivity;
 import com.stuckinadrawer.simpleGame.R;
 import com.stuckinadrawer.simpleGame.game.Player;
 
-public class ResolutionFragment extends Fragment{
+public class ResolutionFragment extends Fragment {
 
-    ContinueListener continueListener;
+    private ContinueListener continueListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +41,7 @@ public class ResolutionFragment extends Fragment{
             continueListener = (ContinueListener) activity;
         } else {
             throw new ClassCastException(activity.toString()
-                    +  " must implement ContinueListener");
+                    + " must implement ContinueListener");
         }
     }
 
@@ -55,31 +55,30 @@ public class ResolutionFragment extends Fragment{
         text += p2.getAction().doStuff(p2, p1);
         text += "\n";
 
-        if(p1.isPoisoned()){
+        if (p1.isPoisoned()) {
             p1.takeDamage(1);
-            text+=p1.getPlayerName()+" takes damage from Poison. \n";
+            text += p1.getPlayerName() + " takes damage from Poison. \n";
 
         }
-        if(p2.isPoisoned()){
+        if (p2.isPoisoned()) {
             p2.takeDamage(1);
-            text+=p2.getPlayerName()+" takes damage from Poison. \n";
+            text += p2.getPlayerName() + " takes damage from Poison. \n";
         }
 
-        if(p1.getHealth() <= 0 && p2.getHealth() <= 0){
+        if (p1.getHealth() <= 0 && p2.getHealth() <= 0) {
             text += "\n THE BATTLE IS OVER! NO ONE HAS WON!";
             text += "\n EVERYONE IS DEAD! MUAHAHAHAHAAAA!";
             Button b = (Button) getView().findViewById(R.id.button_continue);
             b.setVisibility(View.GONE);
-        }else if(p1.getHealth() <= 0){
-            text += "\n THE BATTLE IS OVER! \n\n"+p2.getPlayerName()+" HAS WON!";
+        } else if (p1.getHealth() <= 0) {
+            text += "\n THE BATTLE IS OVER! \n\n" + p2.getPlayerName() + " HAS WON!";
             Button b = (Button) getView().findViewById(R.id.button_continue);
             b.setVisibility(View.GONE);
-        }else if(p2.getHealth() <= 0){
-            text += "\n THE BATTLE IS OVER! \n\n"+p1.getPlayerName()+" HAS WON!";
+        } else if (p2.getHealth() <= 0) {
+            text += "\n THE BATTLE IS OVER! \n\n" + p1.getPlayerName() + " HAS WON!";
             Button b = (Button) getView().findViewById(R.id.button_continue);
             b.setVisibility(View.GONE);
         }
-
 
 
         TextView textView = (TextView) getView().findViewById(R.id.text);

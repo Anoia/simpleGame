@@ -2,9 +2,9 @@ package com.stuckinadrawer.simpleGame.game.actions;
 
 import com.stuckinadrawer.simpleGame.game.Player;
 
-public class FirstAid extends Action{
+public class FirstAid extends Action {
 
-    public FirstAid(){
+    public FirstAid() {
         this.actionName = "First Aid";
         this.actionType = ActionType.FIRST_AID;
         this.actionDescription = "First Aid:\nHeals for 3 hp and removes existing Poison. Does not stop Poison from being applied at the same time.";
@@ -13,13 +13,13 @@ public class FirstAid extends Action{
     @Override
     public String doStuff(Player p1, Player p2) {
         String result;
-        if(p2.getAction().getActionType() == ActionType.ATTACK){
-            result = p1.getPlayerName() + " tries to use "+actionName+", but it is prevented by "+p2.getPlayerName()+"'s "+ p2.getAction().getActionName()+"!\n";
-        }else{
+        if (p2.getAction().getActionType() == ActionType.ATTACK) {
+            result = p1.getPlayerName() + " tries to use " + actionName + ", but it is prevented by " + p2.getPlayerName() + "'s " + p2.getAction().getActionName() + "!\n";
+        } else {
             result = p1.getPlayerName() + " uses First Aid!\n";
             result += p1.getPlayerName() + " heals 3 HP.\n";
             p1.heal(3);
-            if(p1.isPoisoned() && p2.getAction().getActionType() != ActionType.POISON){
+            if (p1.isPoisoned() && p2.getAction().getActionType() != ActionType.POISON) {
                 p1.setPoisoned(false);
                 result += p1.getPlayerName() + " also heals Poison!\n";
             }

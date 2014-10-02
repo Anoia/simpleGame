@@ -3,8 +3,6 @@ package com.stuckinadrawer.simpleGame.game;
 
 import com.stuckinadrawer.simpleGame.game.actions.Action;
 
-import java.sql.SQLOutput;
-
 public class Player {
 
     private final int maxHealth = 20;
@@ -17,7 +15,7 @@ public class Player {
     private boolean poisoned = false;
 
 
-    public Player(String playerName){
+    public Player(String playerName) {
         this.playerName = playerName;
         health = maxHealth;
     }
@@ -48,12 +46,12 @@ public class Player {
     }
 
     public void takeDamage(int amount) {
-        this.health -=amount;
+        this.health -= amount;
     }
 
-    public void heal(int amount){
+    public void heal(int amount) {
         this.health += amount;
-        if(health>maxHealth){
+        if (health > maxHealth) {
             health = maxHealth;
         }
     }

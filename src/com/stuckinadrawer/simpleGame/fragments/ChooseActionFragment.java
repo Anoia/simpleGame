@@ -16,8 +16,8 @@ import com.stuckinadrawer.simpleGame.game.actions.*;
 
 public class ChooseActionFragment extends Fragment {
 
-    Player player;
-    ConfirmActionListener confirmActionListener;
+    private Player player;
+    private ConfirmActionListener confirmActionListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,27 +26,21 @@ public class ChooseActionFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity){
+    public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
             confirmActionListener = (ConfirmActionListener) activity;
-        } catch (ClassCastException e){
+        } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement ConfirmActionListener");
         }
     }
 
     @Override
-    public void onResume(){
-        super.onResume();
-        //setUpView(getView());
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle bundle){
+    public void onViewCreated(View view, Bundle bundle) {
         setUpView(getView());
     }
 
-    private void setUpView(View view){
+    private void setUpView(View view) {
 
         RadioGroup group = (RadioGroup) view.findViewById(R.id.radioGroup);
         group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -57,20 +51,20 @@ public class ChooseActionFragment extends Fragment {
                 RadioButton checkedButton = (RadioButton) getView().findViewById(checkedId);
                 String actionName = checkedButton.getText().toString();
                 Action action;
-                if(actionName.equals("Attack")){
+                if (actionName.equals("Attack")) {
                     action = new Attack();
-                }else if(actionName.equals("Bash")){
+                } else if (actionName.equals("Bash")) {
                     action = new Bash();
-                }else if(actionName.equals("Block")){
+                } else if (actionName.equals("Block")) {
                     action = new Block();
-                }else if(actionName.equals("Counter")){
+                } else if (actionName.equals("Counter")) {
                     action = new Counter();
-                }else if(actionName.equals("Poison")){
+                } else if (actionName.equals("Poison")) {
                     action = new Poison();
-                }else{
+                } else {
                     action = new FirstAid();
                 }
-                System.out.println(player.getPlayerName()+": changed to "+action.getActionName());
+                System.out.println(player.getPlayerName() + ": changed to " + action.getActionName());
                 player.setAction(action);
                 actionDescription.setText(action.getActionDescription());
             }
@@ -86,7 +80,7 @@ public class ChooseActionFragment extends Fragment {
         });
     }
 
-    public void setPlayer(Player player){
+    public void setPlayer(Player player) {
         this.player = player;
         TextView textView = (TextView) getView().findViewById(R.id.chooseActionPlayerName);
         textView.setText("for " + this.player.getPlayerName());
@@ -94,10 +88,9 @@ public class ChooseActionFragment extends Fragment {
         group.check(R.id.attack);
     }
 
-    public interface ConfirmActionListener{
+    public interface ConfirmActionListener {
         public void onClickConfirm();
     }
-
 
 
 }

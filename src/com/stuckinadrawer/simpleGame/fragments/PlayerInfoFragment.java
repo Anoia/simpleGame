@@ -29,16 +29,16 @@ public class PlayerInfoFragment extends Fragment {
         textView.setText(GameActivity.p2.getHealth() + " hp");
 
         textView = (TextView) getView().findViewById(R.id.p1_poisoned);
-        if(GameActivity.p1.isPoisoned()){
+        if (GameActivity.p1.isPoisoned()) {
             textView.setText("poisoned");
-        }else{
+        } else {
             textView.setText(" ");
         }
 
         textView = (TextView) getView().findViewById(R.id.p2_poisoned);
-        if(GameActivity.p2.isPoisoned()){
+        if (GameActivity.p2.isPoisoned()) {
             textView.setText("poisoned");
-        }else{
+        } else {
             textView.setText(" ");
         }
 
